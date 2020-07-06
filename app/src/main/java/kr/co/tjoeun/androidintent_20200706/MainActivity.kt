@@ -31,9 +31,7 @@ class MainActivity : AppCompatActivity() {
             callBtn.setOnClickListener {
 
                 val inputPhone = phoneNumEdt.text.toString()
-
                 val myUri = Uri.parse("tel:${inputPhone}")
-
                 val myIntent = Intent(Intent.ACTION_CALL, myUri)
 
 
@@ -43,16 +41,27 @@ class MainActivity : AppCompatActivity() {
             smsBtn.setOnClickListener {
 
                 val inputPhone = phoneNumEdt.text.toString()
-
                 val inputContent = smsContentEdt.text.toString()
-
                 val myUri = Uri.parse("smsto:${inputPhone}")
-
                 val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
 
                 //입력한 내용을 putExtra,로 들고가자  (sms_body라고 정해져 있음)
                 myIntent.putExtra("sms_body", inputContent)
                 startActivity(myIntent)
+            }
+
+            naverWebLinkBtn.setOnClickListener {
+                val myUri = Uri.parse("https://naver.com")
+                val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+                startActivity(myIntent)
+            }
+
+            kakaoPlayStoreBtn.setOnClickListener {
+                val myUri = Uri.parse("market://details?id=com.kakao.talk")
+                val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+                startActivity(myIntent)
+
+
             }
 
 
